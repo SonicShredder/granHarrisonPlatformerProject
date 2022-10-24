@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - grunt
+  - player
+  - console
+  - bullet1
+  - bullet2
   layers:
   - Default
   - TransparentFX

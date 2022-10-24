@@ -8,6 +8,8 @@ public class PlayerBehaviour : MonoBehaviour
     public float Speed = 5;
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
+    public float health = 10;
+    public bool isTouching = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +33,21 @@ public class PlayerBehaviour : MonoBehaviour
             rb2d.velocity = Vector2.up * jumpVelocity;
         }
 
+        if(isTouching == true)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            }
+        }
+
+        if (health == 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
 
         //float xmove = Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
-       // Vector2 movement = new Vector2(xmove, rb2d.velocity.y);
+        // Vector2 movement = new Vector2(xmove, rb2d.velocity.y);
         //rb2d.velocity = movement;
         //rb2d.velocity = new Vector2(xmove * Speed, rb2d.velocity.y);
     }
@@ -46,10 +60,38 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Platform");
+        if (collision.transform.tag == "Platform")
         {
-            Debug.Log("touching object");
+            //Debug.Log("touching object");
+        }
+
+        if (collision.transform.tag == "grunt")
+        {
+            health--;
+            //Debug.Log(health);
+        }
+
+        
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "console" )
+        {
+            isTouching = true;
+            //Debug.Log("console");
+            
+        }
+        else
+        {
+            //Debug.Log("false");
+            isTouching = false;
+        }
+
+        if(collision.gameObject.tag == "bullet2")
+        {
+            health--;
         }
     }
-    
+
 }
