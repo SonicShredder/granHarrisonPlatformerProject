@@ -1,33 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
+using TMPro;
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField] private LayerMask platformsLayerMask;
     public float Speed = 5;
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
-    public float health = 10;
+    public static float health;
     public bool isTouching = false;
+    public bool IsPressingSpace;
+    public bool IsPressingE;
+    public TextMeshProUGUI scoreText;
+    public int levelNumber = 1;
+
+    public LayerMask groundLayer;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
-
+        health = 10;
     }
 
     // Update is called once per frame
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            IsPressingSpace = true;
+        }
+        else if(Input.GetKeyUp(KeyCode.Space))
+        {
+            IsPressingSpace = false;
+        }
+    }
+
     void FixedUpdate()
     {
-        
+        //if(IsPressingSpace == true)
+        //{
+        //    Debug.Log("z has been pressed");
+        //    IsPressingSpace = false;
+       // }
+
         float horizontal = Input.GetAxis("Horizontal");
 
         transform.Translate(horizontal * Time.deltaTime * Speed, 0f, 0f);
 
+        Debug.Log("IsGrounded:"+ IsGrounded()+ ", IsPressingSpace:" + IsPressingSpace);
 
-        if( IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        if( IsGrounded() && IsPressingSpace)
         {
             float jumpVelocity = 10f;
             rb2d.velocity = Vector2.up * jumpVelocity;
@@ -35,15 +61,17 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(isTouching == true)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKey(KeyCode.E))
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+                levelNumber++;
+                UnityEngine.SceneManagement.SceneManager.LoadScene(levelNumber);
+                
             }
         }
 
         if (health == 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(levelNumber);
         }
 
         //float xmove = Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
@@ -54,8 +82,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     private bool IsGrounded()
     {
-       RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f);
-       return raycastHit2D.collider != null;
+        return Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, groundLayer);
+        
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -68,6 +96,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (collision.transform.tag == "grunt")
         {
             health--;
+            scoreText.text = "Life: " + health.ToString();
             //Debug.Log(health);
         }
 
@@ -91,6 +120,7 @@ public class PlayerBehaviour : MonoBehaviour
         if(collision.gameObject.tag == "bullet2")
         {
             health--;
+            scoreText.text = "Life: " + health.ToString();
         }
     }
 
