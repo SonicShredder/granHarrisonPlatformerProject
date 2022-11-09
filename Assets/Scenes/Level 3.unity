@@ -1852,8 +1852,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5290918664823202658, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1154216734}
+    - target: {fileID: 5290918664823202658, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: levelNumber
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5290918664823202659, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: m_RootOrder
@@ -1901,7 +1905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290918664823202669, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: m_GravityScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5290918664823202670, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: m_Name
