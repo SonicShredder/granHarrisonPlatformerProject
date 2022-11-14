@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    public Vector2 spawnDir = Vector2.right;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        transform.rotation = Quaternion.Euler(0, 0, -90);
-        rb.velocity = Vector2.right * 7;
+
+        PlayerBehaviour pB = GameObject.FindObjectOfType<PlayerBehaviour>();
+        transform.rotation = Quaternion.Euler(0, 0, pB.playerDir * 90);
+        rb.velocity = SetSpawnDirection(pB.playerDir) * 7;
         Invoke("Despawn", 2);
+    }
+
+    public Vector2 SetSpawnDirection(int dir)
+    {
+        if(dir == -1)
+        {
+            return -Vector2.right;
+            
+        }
+        else
+        {
+            return Vector2.right;
+        }
     }
 
     // Update is called once per frame

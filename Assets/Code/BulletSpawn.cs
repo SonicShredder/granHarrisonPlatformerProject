@@ -18,7 +18,7 @@ public class BulletSpawn : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity);
         }
     }
 }

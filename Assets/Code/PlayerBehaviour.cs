@@ -18,6 +18,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     public LayerMask groundLayer;
 
+    //0 is right, 1 if left
+    public int playerDir;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +54,16 @@ public class PlayerBehaviour : MonoBehaviour
 
         transform.Translate(horizontal * Time.deltaTime * Speed, 0f, 0f);
 
-        Debug.Log("IsGrounded:"+ IsGrounded()+ ", IsPressingSpace:" + IsPressingSpace);
+        if(horizontal > 0)
+        {
+            playerDir = 1;
+        }
+        else if(horizontal < 0)
+        {
+            playerDir = -1;
+        }
+
+        //Debug.Log("IsGrounded:"+ IsGrounded()+ ", IsPressingSpace:" + IsPressingSpace);
 
         if( IsGrounded() && IsPressingSpace)
         {

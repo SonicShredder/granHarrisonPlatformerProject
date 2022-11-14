@@ -29,7 +29,7 @@ public class EnemyBulletBehaviour : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
 
-
+    
 
     }
 
