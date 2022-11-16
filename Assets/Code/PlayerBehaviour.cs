@@ -81,9 +81,9 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
 
-        if (health == 0)
+        if (health <= 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(levelNumber);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(5);
         }
 
         //float xmove = Input.GetAxis("Horizontal") * Speed * Time.deltaTime;

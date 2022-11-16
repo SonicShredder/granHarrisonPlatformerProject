@@ -1857,7 +1857,7 @@ PrefabInstance:
       objectReference: {fileID: 1154216734}
     - target: {fileID: 5290918664823202658, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: levelNumber
-      value: -1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5290918664823202659, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: m_RootOrder
@@ -1902,6 +1902,18 @@ PrefabInstance:
     - target: {fileID: 5290918664823202659, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290918664823202668, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290918664823202668, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290918664823202668, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9372549
       objectReference: {fileID: 0}
     - target: {fileID: 5290918664823202669, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: m_GravityScale

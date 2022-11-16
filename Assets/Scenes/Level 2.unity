@@ -1044,6 +1044,18 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5290918664823202668, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290918664823202668, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290918664823202668, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9372549
+      objectReference: {fileID: 0}
     - target: {fileID: 5290918664823202670, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: m_Name
       value: Player
