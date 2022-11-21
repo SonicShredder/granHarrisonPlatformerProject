@@ -6,6 +6,8 @@ public class BulletSpawn : MonoBehaviour
 {
     public GameObject projectile;
 
+    public AudioClip PlayerLaser;
+
     // Start is called before the first frame update
 
     void Start()
@@ -19,6 +21,7 @@ public class BulletSpawn : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity);
+            AudioManager.PlaySoundEffect(PlayerLaser);
         }
     }
 }

@@ -21,6 +21,9 @@ public class PlayerBehaviour : MonoBehaviour
     //0 is right, 1 if left
     public int playerDir;
 
+    //player sounds
+    public AudioClip PlayerHit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -108,6 +111,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (collision.transform.tag == "grunt")
         {
             health--;
+            AudioManager.PlaySoundEffect(PlayerHit);
             scoreText.text = "Life: " + health.ToString();
             //Debug.Log(health);
         }
@@ -132,6 +136,7 @@ public class PlayerBehaviour : MonoBehaviour
         if(collision.gameObject.tag == "bullet2")
         {
             health--;
+            AudioManager.PlaySoundEffect(PlayerHit);
             scoreText.text = "Life: " + health.ToString();
         }
     }

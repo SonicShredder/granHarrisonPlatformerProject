@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GruntBehaviour : MonoBehaviour
 {
+    public AudioClip AlienHit;
+
     public int gruntHealth = 3;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class GruntBehaviour : MonoBehaviour
         if(collision.gameObject.tag == "bullet1")
         {
             gruntHealth--;
+            AudioManager.PlaySoundEffect(AlienHit);
         }
 
         

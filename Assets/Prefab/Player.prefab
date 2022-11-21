@@ -122,14 +122,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  health: 10
   isTouching: 0
   IsPressingSpace: 0
   IsPressingE: 0
   scoreText: {fileID: 0}
+  levelNumber: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  playerDir: 0
+  PlayerHit: {fileID: 8300000, guid: e45b1281d78541a42a2edc0c66440c2b, type: 3}
 --- !u!61 &5290918664823202657
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -201,3 +203,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 9092754701359577912, guid: 48d2bb45b548d48208728709260b2b7a, type: 3}
+  PlayerLaser: {fileID: 8300000, guid: 93b2d258ad7a27a429ce47d70a90cc36, type: 3}

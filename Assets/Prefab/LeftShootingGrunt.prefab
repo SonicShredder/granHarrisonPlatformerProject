@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b098ed22b2374a14bb0c922e06e6e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AlienHit: {fileID: 8300000, guid: 7a5b82ebae1a95041aae61a8dcfbbda3, type: 3}
   gruntHealth: 3
 --- !u!1 &9098271165386175326
 GameObject:
