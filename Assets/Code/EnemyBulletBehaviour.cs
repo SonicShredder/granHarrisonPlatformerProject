@@ -39,5 +39,10 @@ public class EnemyBulletBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(collision.transform.tag == "Platform")
+        {
+            Destroy(gameObject);
+        }
     }
 }

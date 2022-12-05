@@ -10,6 +10,7 @@ TagManager:
   - console
   - bullet1
   - bullet2
+  - Health
   layers:
   - Default
   - TransparentFX

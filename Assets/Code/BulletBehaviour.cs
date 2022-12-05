@@ -55,6 +55,11 @@ public class BulletBehaviour : MonoBehaviour
             Debug.Log("touching object");
             Destroy(gameObject);
         }
+
+        if(collision.transform.tag == "Platform")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

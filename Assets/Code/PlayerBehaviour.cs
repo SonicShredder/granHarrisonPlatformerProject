@@ -15,6 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool IsPressingE;
     public TextMeshProUGUI scoreText;
     public int levelNumber = 1;
+    public bool isFacingLeft = false;
 
     public LayerMask groundLayer;
 
@@ -42,6 +43,22 @@ public class PlayerBehaviour : MonoBehaviour
         else if(Input.GetKeyUp(KeyCode.Space))
         {
             IsPressingSpace = false;
+        }
+
+        Rotate();
+    }
+
+    public void Rotate()
+    {
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            
+        }
+        
+        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -137,6 +154,12 @@ public class PlayerBehaviour : MonoBehaviour
         {
             health--;
             AudioManager.PlaySoundEffect(PlayerHit);
+            scoreText.text = "Life: " + health.ToString();
+        }
+
+        if (collision.gameObject.tag == "Health")
+        {
+            health++;
             scoreText.text = "Life: " + health.ToString();
         }
     }
