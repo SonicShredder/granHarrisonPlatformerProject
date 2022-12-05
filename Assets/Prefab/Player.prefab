@@ -127,6 +127,8 @@ MonoBehaviour:
   IsPressingE: 0
   scoreText: {fileID: 0}
   levelNumber: 1
+  isFacingLeft: 0
+  playerImage: {fileID: 5290918664823202668}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

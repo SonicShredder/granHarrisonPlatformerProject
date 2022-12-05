@@ -16,6 +16,7 @@ public class PlayerBehaviour : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int levelNumber = 1;
     public bool isFacingLeft = false;
+    public SpriteRenderer playerImage; 
 
     public LayerMask groundLayer;
 
@@ -45,20 +46,21 @@ public class PlayerBehaviour : MonoBehaviour
             IsPressingSpace = false;
         }
 
-        Rotate();
+        FlipDirection();
     }
 
-    public void Rotate()
+    public void FlipDirection()
     {
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-            
+            //transform.localRotation = Quaternion.Euler(0, 180, 0);
+            playerImage.flipX = true;
         }
         
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            //transform.localRotation = Quaternion.Euler(0, 0, 0);
+            playerImage.flipX = false;
         }
     }
 
