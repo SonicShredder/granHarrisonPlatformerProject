@@ -7,6 +7,7 @@ using TMPro;
 public class PlayerBehaviour : MonoBehaviour
 {
     public float Speed = 5;
+    private Animator anim;
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
     public static float health;
@@ -30,6 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         rb2d = transform.GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
         health = 10;
         playerDir = 1;
@@ -49,7 +51,23 @@ public class PlayerBehaviour : MonoBehaviour
 
         Horizontal = Input.GetAxis("Horizontal");
 
+        if(Horizontal == 0)
+        {
+            anim.SetBool("IsRunning", false);
+        }
+        else if(Horizontal !=0)
+        {
+            anim.SetBool("IsRunning", true);
+        }
 
+       if(IsGrounded() != true)
+        {
+            anim.SetBool("IsJummping", true);
+        }
+       else if(IsGrounded() != false)
+        {
+            anim.SetBool("IsJummping", false);
+        }
         FlipDirection();
     }
 
