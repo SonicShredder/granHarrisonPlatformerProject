@@ -12,7 +12,7 @@ public class BulletBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         PlayerBehaviour pB = GameObject.FindObjectOfType<PlayerBehaviour>();
-        transform.rotation = Quaternion.Euler(0, 0, pB.playerDir * 90);
+        transform.rotation = Quaternion.Euler(0, 0, pB.playerDir * -90);
         rb.velocity = SetSpawnDirection(pB.playerDir) * 7;
         Invoke("Despawn", 2);
     }

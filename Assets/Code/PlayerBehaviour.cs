@@ -16,8 +16,8 @@ public class PlayerBehaviour : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int levelNumber = 1;
     public bool isFacingLeft = false;
-    public SpriteRenderer playerImage; 
-
+    public SpriteRenderer playerImage;
+    public float Horizontal;
     public LayerMask groundLayer;
 
     //0 is right, 1 if left
@@ -32,6 +32,7 @@ public class PlayerBehaviour : MonoBehaviour
         rb2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
         health = 10;
+        playerDir = 1;
     }
 
     // Update is called once per frame
@@ -45,6 +46,9 @@ public class PlayerBehaviour : MonoBehaviour
         {
             IsPressingSpace = false;
         }
+
+        Horizontal = Input.GetAxis("Horizontal");
+
 
         FlipDirection();
     }
@@ -72,19 +76,19 @@ public class PlayerBehaviour : MonoBehaviour
         //    IsPressingSpace = false;
        // }
 
-        float horizontal = Input.GetAxis("Horizontal");
+        
 
-        transform.Translate(horizontal * Time.deltaTime * Speed, 0f, 0f);
 
-        if(horizontal > 0)
+        if(Horizontal > 0)
         {
             playerDir = 1;
         }
-        else if(horizontal < 0)
+        else if(Horizontal < 0)
         {
             playerDir = -1;
         }
 
+        rb2d.velocity = new Vector2(Horizontal * Time.deltaTime * Speed, rb2d.velocity.y);
         //Debug.Log("IsGrounded:"+ IsGrounded()+ ", IsPressingSpace:" + IsPressingSpace);
 
         if( IsGrounded() && IsPressingSpace)
@@ -135,6 +139,12 @@ public class PlayerBehaviour : MonoBehaviour
             //Debug.Log(health);
         }
 
+        if (collision.transform.tag == "Spike")
+        {
+            health--;
+            AudioManager.PlaySoundEffect(PlayerHit);
+            scoreText.text = "Life: " + health.ToString();
+        }
         
     }
 
@@ -163,6 +173,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             health++;
             scoreText.text = "Life: " + health.ToString();
+            Destroy(collision.gameObject);
         }
     }
 
