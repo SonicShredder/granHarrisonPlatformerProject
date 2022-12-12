@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea641cb2012f47dcb37765479db0254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTrans: {fileID: 1578071501}
+  PlayerTrans: {fileID: 1578071501}
 --- !u!1 &596276042
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 733775625177246745, guid: 3a59472262926450c8e0dcd65ded7ebf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098271165386175324, guid: 3a59472262926450c8e0dcd65ded7ebf, type: 3}
+      propertyPath: BulletDirection.x
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a59472262926450c8e0dcd65ded7ebf, type: 3}
@@ -644,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8138665417534969505, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 5801.702
+      value: 5332.3193
       objectReference: {fileID: 0}
     - target: {fileID: 8138665417534969505, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
       propertyPath: m_SizeDelta.y
@@ -680,7 +684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8138665417534969505, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 6.43
+      value: 6.1953
       objectReference: {fileID: 0}
     - target: {fileID: 8138665417534969505, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -698,6 +702,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8138665417534969507, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8138665417534969516, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
       propertyPath: m_Camera
       value: 
@@ -712,11 +720,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8138665418895566667, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
       propertyPath: m_margin.x
-      value: 1537.408
+      value: -6.586427
       objectReference: {fileID: 0}
     - target: {fileID: 8138665418895566667, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
       propertyPath: m_fontSizeBase
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138665418895566667, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
@@ -829,11 +841,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5290918664823202658, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
-      propertyPath: Speed
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290918664823202658, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
-      propertyPath: scoreText
+      propertyPath: ScoreText
       value: 
       objectReference: {fileID: 1545042874}
     - target: {fileID: 5290918664823202659, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
@@ -879,18 +887,6 @@ PrefabInstance:
     - target: {fileID: 5290918664823202659, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290918664823202668, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290918664823202668, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
-      propertyPath: m_Color.g
-      value: 0.7921569
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290918664823202668, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
-      propertyPath: m_Color.r
-      value: 0.9372549
       objectReference: {fileID: 0}
     - target: {fileID: 5290918664823202670, guid: 13751f1977ddd45368642c0a3bc15523, type: 3}
       propertyPath: m_Name
@@ -1305,6 +1301,10 @@ PrefabInstance:
     - target: {fileID: 8138665417534969505, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138665417534969507, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8138665417534969516, guid: 0407575855463414885eeac2fb9d7f98, type: 3}
       propertyPath: m_Camera

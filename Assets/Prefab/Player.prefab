@@ -77,9 +77,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1433074287
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: d692dcc7ef4854bb0b35411f364a7914, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9372549, g: 0.7921569, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,16 +122,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23181d73dd8a47158702acf2ed2146d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 300
-  isTouching: 0
+  Speed: 200
+  IsTouching: 0
   IsPressingSpace: 0
   IsPressingE: 0
-  scoreText: {fileID: 0}
-  levelNumber: 1
-  isFacingLeft: 0
-  playerImage: {fileID: 5290918664823202668}
+  ScoreText: {fileID: 0}
+  LevelNumber: 1
+  IsFacingLeft: 0
+  PlayerImage: {fileID: 5290918664823202668}
   Horizontal: 0
-  groundLayer:
+  GroundLayer:
     serializedVersion: 2
     m_Bits: 8
   playerDir: 0
@@ -226,5 +226,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae718606294a45aeac571c9b7b39de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 9092754701359577912, guid: 48d2bb45b548d48208728709260b2b7a, type: 3}
+  Projectile: {fileID: 9092754701359577912, guid: 48d2bb45b548d48208728709260b2b7a, type: 3}
   PlayerLaser: {fileID: 8300000, guid: 93b2d258ad7a27a429ce47d70a90cc36, type: 3}

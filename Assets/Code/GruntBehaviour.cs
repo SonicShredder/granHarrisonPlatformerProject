@@ -6,7 +6,7 @@ public class GruntBehaviour : MonoBehaviour
 {
     public AudioClip AlienHit;
 
-    public int gruntHealth = 3;
+    public int GruntHealth = 3;//f
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class GruntBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gruntHealth == 0)
+        if(GruntHealth == 0)
         {
             Destroy(gameObject);
         }
@@ -26,8 +26,8 @@ public class GruntBehaviour : MonoBehaviour
     {
         if(collision.gameObject.tag == "bullet1")
         {
-            gruntHealth--;
-            AudioManager.PlaySoundEffect(AlienHit);
+            GruntHealth--;
+            AudioManager.PlaySoundEffect(AlienHit, 1.3f);
         }
 
         

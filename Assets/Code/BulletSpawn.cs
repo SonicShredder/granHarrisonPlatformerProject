@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletSpawn : MonoBehaviour
 {
-    public GameObject projectile;
+    public GameObject Projectile;
 
     public AudioClip PlayerLaser;
 
@@ -20,8 +20,8 @@ public class BulletSpawn : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity);
-            AudioManager.PlaySoundEffect(PlayerLaser);
+            GameObject bullet = Instantiate(Projectile, transform.position, Quaternion.identity);
+            AudioManager.PlaySoundEffect(PlayerLaser,0.9f);
         }
     }
 }

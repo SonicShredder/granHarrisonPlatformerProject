@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    public Vector2 spawnDir = Vector2.right;
+    public Vector2 SpawnDir = Vector2.right;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()

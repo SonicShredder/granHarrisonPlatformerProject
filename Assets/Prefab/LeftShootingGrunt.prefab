@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlienHit: {fileID: 8300000, guid: 7a5b82ebae1a95041aae61a8dcfbbda3, type: 3}
-  gruntHealth: 3
+  GruntHealth: 3
 --- !u!1 &9098271165386175326
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,5 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141988b410d5444759882a4a77896050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyProjectile: {fileID: 1835331531650523739, guid: 1b16dfc529bf144d98843e8694b5e38d, type: 3}
-  bulletDirection: {x: -1, y: 0}
+  EnemyProjectile: {fileID: 1835331531650523739, guid: 1b16dfc529bf144d98843e8694b5e38d, type: 3}
+  BulletDirection: {x: -1, y: 0}

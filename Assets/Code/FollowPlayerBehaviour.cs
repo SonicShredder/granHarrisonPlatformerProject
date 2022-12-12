@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FollowPlayerBehaviour : MonoBehaviour
 {
-    public Transform playerTrans;
+    public Transform PlayerTrans;
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerPos = playerTrans.position;
+        Vector3 playerPos = PlayerTrans.position;
 
         transform.position = Vector2.Lerp(transform.position,playerPos,Time.deltaTime * 3);
 

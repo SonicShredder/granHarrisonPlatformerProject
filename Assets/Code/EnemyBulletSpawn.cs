@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyBulletSpawn : MonoBehaviour
 {
-    public GameObject enemyProjectile;
+    public GameObject EnemyProjectile;
 
-    public Vector2 bulletDirection;
+    public Vector2 BulletDirection;//f
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +24,8 @@ public class EnemyBulletSpawn : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(1);
-            GameObject bullet = Instantiate(enemyProjectile, transform.position, Quaternion.identity);
-            bullet.GetComponent<EnemyBulletBehaviour>().dir = bulletDirection;
+            GameObject bullet = Instantiate(EnemyProjectile, transform.position, Quaternion.identity);
+            bullet.GetComponent<EnemyBulletBehaviour>().Dir = BulletDirection;
         }
 
         

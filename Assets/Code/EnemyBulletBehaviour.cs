@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyBulletBehaviour : MonoBehaviour
 {
     Rigidbody2D rb;
-    public Vector2 dir;
+    public Vector2 Dir;//f
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         transform.rotation = Quaternion.Euler(0, 0, -90);
-        rb.velocity = dir * 7;
+        rb.velocity = Dir * 7;
         Invoke("Despawn", 2);
     }
 

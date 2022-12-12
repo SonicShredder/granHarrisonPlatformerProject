@@ -10,19 +10,19 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
-    public static float health;
-    public bool isTouching = false;
+    public static float Health;//f
+    public bool IsTouching = false;
     public bool IsPressingSpace;
     public bool IsPressingE;
-    public TextMeshProUGUI scoreText;
-    public int levelNumber = 1;
-    public bool isFacingLeft = false;
-    public SpriteRenderer playerImage;
+    public TextMeshProUGUI ScoreText;
+    public int LevelNumber = 1;//f
+    public bool IsFacingLeft = false;
+    public SpriteRenderer PlayerImage;
     public float Horizontal;
-    public LayerMask groundLayer;
+    public LayerMask GroundLayer;
 
     //0 is right, 1 if left
-    public int playerDir;
+    public int playerDir;//f
 
     //player sounds
     public AudioClip PlayerHit;
@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
         rb2d = transform.GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
-        health = 10;
+        Health = 10;
         playerDir = 1;
     }
 
@@ -76,13 +76,13 @@ public class PlayerBehaviour : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             //transform.localRotation = Quaternion.Euler(0, 180, 0);
-            playerImage.flipX = true;
+            PlayerImage.flipX = true;
         }
         
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             //transform.localRotation = Quaternion.Euler(0, 0, 0);
-            playerImage.flipX = false;
+            PlayerImage.flipX = false;
         }
     }
 
@@ -115,18 +115,19 @@ public class PlayerBehaviour : MonoBehaviour
             rb2d.velocity = Vector2.up * jumpVelocity;
         }
 
-        if(isTouching == true)
+        if(IsTouching == true)
         {
             if(Input.GetKey(KeyCode.E))
             {
-                levelNumber++;
-                UnityEngine.SceneManagement.SceneManager.LoadScene(levelNumber);
-                
+                LevelNumber++;
+                UnityEngine.SceneManagement.SceneManager.LoadScene(LevelNumber);
+                AudioManager.musicTimeStamp = AudioManager.music.time;
             }
         }
 
-        if (health <= 0)
+        if (Health <= 0)
         {
+            AudioManager.musicTimeStamp = 0;
             UnityEngine.SceneManagement.SceneManager.LoadScene(5);
         }
 
@@ -138,7 +139,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, groundLayer);
+        return Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, GroundLayer);
         
     }
 
@@ -151,17 +152,17 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (collision.transform.tag == "grunt")
         {
-            health--;
-            AudioManager.PlaySoundEffect(PlayerHit);
-            scoreText.text = "Life: " + health.ToString();
+            Health--;
+            AudioManager.PlaySoundEffect(PlayerHit, 1.3f);
+            ScoreText.text = "Life: " + Health.ToString();
             //Debug.Log(health);
         }
 
         if (collision.transform.tag == "Spike")
         {
-            health--;
-            AudioManager.PlaySoundEffect(PlayerHit);
-            scoreText.text = "Life: " + health.ToString();
+            Health--;
+            AudioManager.PlaySoundEffect(PlayerHit, 1.3f);
+            ScoreText.text = "Life: " + Health.ToString();
         }
         
     }
@@ -170,27 +171,27 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (collision.transform.tag == "console" )
         {
-            isTouching = true;
+            IsTouching = true;
             //Debug.Log("console");
             
         }
         else
         {
             //Debug.Log("false");
-            isTouching = false;
+            IsTouching = false;
         }
 
         if(collision.gameObject.tag == "bullet2")
         {
-            health--;
-            AudioManager.PlaySoundEffect(PlayerHit);
-            scoreText.text = "Life: " + health.ToString();
+            Health--;
+            AudioManager.PlaySoundEffect(PlayerHit, 1.3f);
+            ScoreText.text = "Life: " + Health.ToString();
         }
 
         if (collision.gameObject.tag == "Health")
         {
-            health++;
-            scoreText.text = "Life: " + health.ToString();
+            Health++;
+            ScoreText.text = "Life: " + Health.ToString();
             Destroy(collision.gameObject);
         }
     }
